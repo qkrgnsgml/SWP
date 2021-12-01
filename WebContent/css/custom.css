@@ -1,0 +1,101 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+* {
+	font-size:16px;
+	font-family : 'Nanum Gothic', sans-serif;
+}
+h1{
+	font-family : 'Hanna';
+}
+
+thead th{
+	background-color:#006DCC;
+	color: #000000;
+	text-align:center;
+}
+a{
+	color: #000000;
+	text-decoration: none;
+}
+a:hover{
+	color:#bbbbbb;
+	text-decoration:none;
+	cursor:pointer;
+}
+.navbar-default{
+	font-size:18px;
+	background-color: #006DCC;
+	border-color: #006DCC;
+	border-bottom-color:#dddddd;
+	border-bottom-width:3px;
+	border-radius:0px;
+}
+.navbar-default .navbar-brand{
+	font-size:23px;
+	color:#ffffff;
+	padding-top:25px;
+	font-family:'Hanna'
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus{
+	color:#dddddd;
+	background-color: transparent;
+}
+.navbar-default .navbar-nav > .active >a,
+.navbar-default .navbar-nav > .active >a:hover,
+.navbar-default .navbar-nav > .active >a:focus{
+	color:#ffffff;
+	background-color:#1456b8;
+}
+.navbar-default .navbar-nav >li>a{
+	color:white;
+}
+.navbar-default .navbar-nav >li>a:hover,
+.navbar-default .navbar-nav >li>a:focus{
+	color:#dddddd;
+}
+.navbar-default .navbar-nav > .open >a,
+.navbar-default .navbar-nav > .open >a:hover,
+.navbar-default .navbar-nav > .open >a:focus{
+	color:#006DCC;
+	text-decoration:none;
+	background-color:white;
+}
+.navbar-default .navbar-toggle >li>a:hover,
+.navbar-default .navbar-toggle >li>a:focus{
+	background-color: #1456B8;
+}
+.navbar-default .navbar-toggle .icon-bar{
+	background-color: #dddddd;
+}
+@media (max-width: 767px){
+	.navbar-default .navbar-nav .open .dropdown-menu >li >a{
+	font-size:18px;
+	color:#ffffff;
+	} 
+	.navbar-default .navbar-nav .open .dropdown-menu >li >a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu >li >a:focus{
+	font-size:18px;
+	color:#eeeeee;
+	} 
+}
+.navbar-fixed-top{
+	min-height:70px;
+}
+.navbar-nav > li >a{
+	padding-top:0px;
+	padding-bottom:0px;
+	line-height:70px;
+}
+@media (max-width: 767px){
+	.navbar-default .navbar-brand{
+		padding-top:15px;
+	}
+	.navbar-nav >li > a{
+		padding-top:0px;
+		padding-bottom:0px;
+		line-height:40px;
+	}
+}
+
+
