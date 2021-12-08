@@ -79,6 +79,8 @@ html, body {
    <ul class="dropdown-menu">
     <li ><a href="logoutAction.jsp">로그아웃</a></li>
     <li> <a href="joinBroker.jsp">대행가입</a></li>
+    <li> <a href="mybbs.jsp">내가 쓴 구매 글</a></li>
+    <li> <a href="mybbs2.jsp">내가 쓴 판매 글</a></li>
     <li> <a href="sendMessage.jsp">보낸 쪽지</a></li>
     <li> <a href="receiveMessage.jsp">받은 쪽지</a></li>
    </ul>
@@ -123,7 +125,7 @@ geocoder.addressSearch('<%=loc%>', function(result, status) {
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">판매자</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">위치</div>'
         });
         infowindow.open(map, marker);
 

@@ -26,17 +26,6 @@
 		userID=(String)session.getAttribute("userID");
 	}
 %>
- <nav class="navbar navbar-default">
-  <div class="navbar-header">
-   <button type="button" class="navbar-toggle collapsed"
-    data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-    aria-expanded="false">
-   <span class="icon-bar"></span>
-   <span class="icon-bar"></span>
-   <span class="icon-bar"></span>
-  </button>  
-  <a class="navbar-brand" href="main.jsp">거래 대신해드립니다.</a>
- </div>
 <nav class="navbar navbar-default">
   <div class="navbar-header">
    <button type="button" class="navbar-toggle collapsed"
@@ -55,7 +44,7 @@
    <li><a href="bbs.jsp">구매</a>
    <li><a href="bbs2.jsp">판매</a>
    <li><a href="bbs3.jsp">내 정보</a>
-   <li><a href="map.jsp">지도</a>
+   <li><a href="mapInfo.jsp">지도</a>
    <li><a href="assess.jsp">평가</a>
    <li class="active"><a href="messageForm.jsp">쪽지</a>
   </ul>
@@ -85,8 +74,10 @@
    <ul class="dropdown-menu">
     <li ><a href="logoutAction.jsp">로그아웃</a></li>
     <li> <a href="joinBroker.jsp">대행가입</a></li>
-    <li class="active"> <a href="sendMessage.jsp">보낸 쪽지</a></li>
-    <li> <a href="receiveMessage.jsp">받은 쪽지</a></li>
+    <li> <a href="mybbs.jsp">내가 쓴 구매 글</a></li>
+    <li> <a href="mybbs2.jsp">내가 쓴 판매 글</a></li>
+    <li> <a href="sendMessage.jsp">보낸 쪽지</a></li>
+    <li class="active"> <a href="receiveMessage.jsp">받은 쪽지</a></li>
    </ul>
   </li>
   </ul>	

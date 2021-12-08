@@ -50,7 +50,7 @@
    <li><a href="bbs.jsp">구매</a>
    <li class="active"><a href="bbs2.jsp">판매</a>
    <li><a href="bbs3.jsp">내 정보</a>
-   <li><a href="map.jsp">지도</a>
+   <li><a href="mapInfo.jsp">지도</a>
    <li><a href="assess.jsp">평가</a>
    <li><a href="messageForm.jsp">쪽지</a>
   </ul>
@@ -80,6 +80,8 @@
    <ul class="dropdown-menu">
     <li ><a href="logoutAction.jsp">로그아웃</a></li>
     <li> <a href="joinBroker.jsp">대행가입</a></li>
+    <li> <a href="mybbs.jsp">내가 쓴 구매 글</a></li>
+    <li> <a href="mybbs2.jsp">내가 쓴 판매 글</a></li>
     <li> <a href="sendMessage.jsp">보낸 쪽지</a></li>
     <li> <a href="receiveMessage.jsp">받은 쪽지</a></li>
    </ul>
@@ -117,8 +119,8 @@
  			<tbody>
  			<%
  				BbsDAO2 bbsDAO = new BbsDAO2();
- 			 				ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
- 			 				for(int i=0;i<list.size();i++){
+ 			 			 				ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
+ 			 			 				for(int i=0;i<list.size();i++){
  			%>
  			 	<tr>
  					<td><%=list.get(i).getBbsID()%></td>
@@ -163,9 +165,9 @@
  			<tbody>
  			<%
  				BbsDAO2 bbsDAO = new BbsDAO2();
- 			 				ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
- 			 				for(int i=0;i<list.size();i++){
- 			 					if(list.get(i).getBbsTitle().contains(title)){
+ 			 			 				ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
+ 			 			 				for(int i=0;i<list.size();i++){
+ 			 			 					if(list.get(i).getBbsTitle().contains(title)){
  			%>
  			 	<tr>
  					<td><%= list.get(i).getBbsID() %></td>

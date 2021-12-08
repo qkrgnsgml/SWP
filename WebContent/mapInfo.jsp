@@ -1,9 +1,6 @@
+<%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="bbs.BbsDAO2" %>
-<%@ page import="bbs.Bbs" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,12 +17,11 @@
 		userID=(String)session.getAttribute("userID");
 	}
 %>
- <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default">
   <div class="navbar-header">
    <button type="button" class="navbar-toggle collapsed"
     data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
     aria-expanded="false">
-   <span class="icon-bar"></span>
    <span class="icon-bar"></span>
    <span class="icon-bar"></span>
    <span class="icon-bar"></span>
@@ -34,17 +30,17 @@
  </div>
  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   <ul class="nav navbar-nav">
-   <li class="active"><a href="main.jsp">메인</a>
-   <li><a href="bbs.jsp">구매</a>
+   <li><a href="main.jsp">메인</a>
+   <li ><a href="bbs.jsp">구매</a>
    <li><a href="bbs2.jsp">판매</a>
    <li><a href="bbs3.jsp">내 정보</a>
-   <li><a href="mapInfo.jsp">지도</a>
+   <li class="active"><a href="mapInfo.jsp">지도</a>
    <li><a href="assess.jsp">평가</a>
    <li><a href="messageForm.jsp">쪽지</a>
   </ul>
   <%
   	if(userID==null){
-  %>
+  		%>
   <ul class="nav navbar-nav navbar-right">
    <li class="dropdown">
     <a href="#" class="dropddown-toggle"
@@ -58,8 +54,8 @@
   </ul>
   		
   		<%
-  		  			}else{
-  		  		%>
+  	}else{
+  		%>
   		  <ul class="nav navbar-nav navbar-right">
    <li class="dropdown">
     <a href="#" class="dropddown-toggle"
@@ -75,63 +71,30 @@
    </ul>
   </li>
   </ul>	
-  		<%
-	  			}
-	  		%>
-   
- </div>
+  		<% 
+  	}
+  %>
+    </div>
  </nav>
  <div class="container">
- 	<div class="jumbotron">
- 		<div class="container">
- 			<h1>거래대신해드립니다</h1>
- 			<p>고액의 중고거래 직거래를 대행해주는 사이트입니다.</p>
- 			<p><a class="btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
- 		</div>
- 	</div>
- </div>
- <div class="container">
- <div class="jumbotron">
- 	<div class="row">
- 		<table class="table table-striped" style="table-layout:fixed;text-align: center; border:1px solid #dddddd">
- 			<%
- 				BbsDAO2 bbsDAO = new BbsDAO2();
- 					ArrayList<Bbs> list2 = bbsDAO.getList2();
- 			%>
+ 	<form method="get" action="map.jsp">
+ 		<table class="table table-bordered table-hover" style="text-align:center;border : 1px solid #dddddd">
  			<thead>
  				<tr>
- 				<%if(list2.size()<3){
- 	 				for(int i=0;i<list2.size();i++){%>
- 				<th style="background-color:#eeeeee; text-align:center;"><a href="view2.jsp?bbsID=<%=list2.get(i).getBbsID()%>"><%=list2.get(i).getBbsTitle() %></a></th>	
- 				<% }} else{
- 					for(int i=0;i<3;i++){ %>
- 				<th style="background-color:#eeeeee; text-align:center;"><a href="view2.jsp?bbsID=<%=list2.get(i).getBbsID()%>"><%=list2.get(i).getBbsTitle() %></a></th>
- 				<%}} %>
+ 					<th colspan="2"><h4 style="color:white">내 주변 대행찾기</h4></th>
  				</tr>
  			</thead>
  			<tbody>
- 			<%
- 				if(list2.size()<3){
- 				for(int i=0;i<list2.size();i++){
- 			%>
- 			<tr>
- 			 	
-
- 					<td><a href="view2.jsp?bbsID=<%=list2.get(i).getBbsID()%>"><img src="upload/<%= list2.get(i).getImg() %>"  width=365 height=384 ></a></td>				
- 				
- 			<%
- 				}}else{
- 					for(int i=0;i<3;i++){ 				
- 			%>
- 			<td><a href="view2.jsp?bbsID=<%=list2.get(i).getBbsID()%>"><img src="upload/<%= list2.get(i).getImg() %>" style="width: 100%; height: auto;" ></a></td>
- 			<%}}%>
-			</tr>
-			</tbody>
+ 				<tr>
+ 					<td style="width:110px;"><h5>내 위치</h5></td>
+ 					<td><input class="form-control" type="text" name="location" maxlength="30"  placeholder="내 위치를 쓰시오(동까지)"></td>
+ 				</tr>
+ 				<tr>
+ 					<td style="text-align:left" colspan="2"><input class="btn btn-primary pull-right" type="submit" value="찾기"></td>
+ 				</tr>
+ 			</tbody>
  		</table>
- 	</div>
- 	</div>
+ 	</form>
  </div>
- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

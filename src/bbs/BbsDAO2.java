@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import bbs.Bbs;
+
 
 public class BbsDAO2 {
 	private Connection conn;
@@ -216,6 +218,38 @@ public class BbsDAO2 {
 				bbs.setLocation(rs.getString(10));
 				list.add(bbs);
 			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
+	public ArrayList<Bbs> getListUser(String userID){
+		//컨셉이 나만의 블로그기때문에 해당 로그인한 userID만이 쓴 글의 정보를 가져오는 함수
+		String SQL="SELECT * FROM bbs2 WHERE userID= ? and bbsAvailable=1 ORDER BY bbsID DESC";
+		ArrayList<Bbs> list = new ArrayList<Bbs>();
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(SQL);
+			pstmt.setString(1,userID);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				bbs.setPrice(rs.getString(7));
+				bbs.setState(rs.getString(8));
+				bbs.setImg(rs.getString(9));
+				bbs.setLocation(rs.getString(10));
+				list.add(bbs);		
+			} 
+			conn.close();
+			rs.close();
+			pstmt.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

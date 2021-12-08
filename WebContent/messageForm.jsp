@@ -23,6 +23,10 @@
 		script.println("location.href= 'login.jsp'");
 		script.println("</script>");
 	}
+	String sendID=null;
+	if(request.getParameter("sendID")!=null){
+		sendID = request.getParameter("sendID");
+	}
 	
 %>
 
@@ -44,7 +48,7 @@
    <li><a href="bbs.jsp">구매</a>
    <li><a href="bbs2.jsp">판매</a>
    <li><a href="bbs3.jsp">내 정보</a>
-   <li><a href="map.jsp">지도</a>
+   <li><a href="mapInfo.jsp">지도</a>
    <li><a href="assess.jsp">평가</a>
    <li class="active"><a href="messageForm.jsp">쪽지</a>
   </ul>
@@ -74,6 +78,8 @@
    <ul class="dropdown-menu">
     <li ><a href="logoutAction.jsp">로그아웃</a></li>
     <li> <a href="joinBroker.jsp">대행가입</a></li>
+    <li> <a href="mybbs.jsp">내가 쓴 구매 글</a></li>
+    <li> <a href="mybbs2.jsp">내가 쓴 판매 글</a></li>
     <li> <a href="sendMessage.jsp">보낸 쪽지</a></li>
     <li> <a href="receiveMessage.jsp">받은 쪽지</a></li>
    </ul>
@@ -98,9 +104,15 @@
  				<tr>
  					<td><input type="text" class="form-control" placeholder="<%=userID %>" value = "<%=userID %>"name="send" maxlenth="20" readonly></td>
  				</tr>
+ 				<%if (sendID==null){ %>
  				<tr>
  					<td><input type="text" class="form-control" placeholder="받는 사람" name="receive" maxlenth="20"></td>
  				</tr>
+ 				<%}else{ %>
+ 				<tr>
+ 					<td><input type="text" class="form-control" placeholder="받는 사람" name="receive" value="<%=sendID%>"maxlenth="20"></td>
+ 				</tr>
+ 				<%} %>
  				<tr>
  					<td><textarea class="form-control" placeholder="글 내용" name="content" maxlenth="2048" style="height:350px;"></textarea></td>
  				</tr>
