@@ -34,7 +34,7 @@
    <li><a href="bbs.jsp">구매</a>
    <li class="active"><a href="bbs2.jsp">판매</a>
    <li><a href="bbs3.jsp">내 정보</a>
-   <li><a href="mapInfo.jsp">지도</a>
+   <li><a href="map.jsp">지도</a>
    <li><a href="assess.jsp">평가</a>
    <li><a href="messageForm.jsp">쪽지</a>
   </ul>

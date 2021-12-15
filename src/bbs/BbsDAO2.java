@@ -256,5 +256,19 @@ public class BbsDAO2 {
 		return list;
 	}
 	
+	public int updateIng(int bbsID, String bbsTitle) {
+		String SQL="UPDATE BBS2 SET bbsTitle =? WHERE bbsID =?";
+		try {
+			PreparedStatement pstmt=conn.prepareStatement(SQL);
+			pstmt.setString(1, bbsTitle);
+			pstmt.setInt(2,bbsID);
+			
+			return pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //db¿À·ù
+	}
+	
 	
 }

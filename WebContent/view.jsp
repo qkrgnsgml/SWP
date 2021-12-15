@@ -48,7 +48,7 @@
    <li class="active"><a href="bbs.jsp">구매</a>
    <li><a href="bbs2.jsp">판매</a>
    <li><a href="bbs3.jsp">내 정보</a>
-   <li><a href="mapInfo.jsp">지도</a>
+   <li><a href="map.jsp">지도</a>
    <li><a href="assess.jsp">평가</a>
    <li><a href="messageForm.jsp">쪽지</a>
   </ul>
@@ -126,6 +126,8 @@
  		%>		
  				<a href="update.jsp?bbsID=<%= bbsID%>"class="btn btn-primary">수정</a>
  				<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=<%= bbsID%>"class="btn btn-primary">삭제</a>
+ 				<a href="ingAction.jsp?bbsID=<%= bbsID%>&title=<%= bbs.getBbsTitle()%>"class="btn btn-primary">거래중</a>
+ 				<a href="endAction.jsp?bbsID=<%= bbsID%>&title=<%= bbs.getBbsTitle()%>"class="btn btn-primary">거래완료</a>
  		<%
  			}
  		%>
